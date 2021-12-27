@@ -1,8 +1,9 @@
 // Reference:
 // https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
 import * as sha1 from 'sha1'
+import { Database } from 'better-sqlite3'
 
-export function initDatabase(database: any, config: DeckConfig) {
+export function initDatabase(database: Database, config: DeckConfig) {
   const current = config.id
   const deckId = current
   const modelId = deckId + 1
@@ -196,7 +197,7 @@ COMMIT;
   database.exec(sql)
 }
 
-export function insertCard(database: any, deck: DeckConfig, card: Card) {
+export function insertCard(database: Database, deck: DeckConfig, card: Card) {
   const createTime = card.timestamp || +new Date()
   const cardId = createTime
   const noteId = cardId + 1

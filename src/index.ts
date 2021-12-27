@@ -6,7 +6,7 @@ import * as rimraf from 'rimraf'
 import * as archiver from 'archiver'
 
 export class APKG {
-  private db: any
+  private db: Database.Database
   private deck: DeckConfig
   private dest: string
   private mediaFiles: Array<string>
